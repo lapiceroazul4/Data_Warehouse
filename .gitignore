@@ -223,3 +223,4 @@ $RECYCLE.BIN/
 /API/__pycache__/
 /API/df1.csv
 /API/df2.csv
+/API/api_config.json
