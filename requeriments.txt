@@ -1,0 +1,4 @@
+pymysql==1.1.0
+pandas==2.0.3
+seaborn==0.12.2
+SQLAlchemy==2.0.20
