@@ -214,6 +214,8 @@ $RECYCLE.BIN/
 
 # ------ Additional Files -----
 
+
+#TODO: Update gitignore
 # Directory Airbnb
 /Airbnb/Airbnb_Open_Data.csv
 /Airbnb/data.csv
