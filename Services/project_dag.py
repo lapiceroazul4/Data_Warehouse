@@ -1,8 +1,9 @@
+
 from datetime import timedelta
 from airflow import DAG
 from airflow.operators.python import PythonOperator
 from datetime import datetime
-from etl import read_csv, read_db, transform_csv, transform_db, merge, load, store
+from etl_API import extract_api, extract_db, transform_api, transform_db, creating_DWH, sending_kafka
 
 default_args = {
     'owner': 'airflow',
@@ -16,15 +17,15 @@ default_args = {
 }
 
 with DAG(
-    'etl_dag',
+    'ETL Project',
     default_args=default_args,
-    description='Data Warehouse Pipeline',
+    description='ETL Project',
     schedule_interval='@daily',  # Set the schedule interval as per your requirements
 ) as dag:
 
     read_db = PythonOperator(
-        task_id='read_db',
-        python_callable=read_db,
+        task_id='extract_db',
+        python_callable=extract_db,
     )
 
     transform_db = PythonOperator(
@@ -32,21 +33,26 @@ with DAG(
         python_callable=transform_db,
         )
     
+    read_csv = PythonOperator(
+        task_id='extract_api',
+        python_callable=extract_api,
+    )
 
+    transform_csv = PythonOperator(
+        task_id='transform_api',
+        python_callable=transform_api,
+        )
+    
     merge = PythonOperator(
-        task_id='merge',
-        python_callable=merge,
+        task_id='creating_DWH',
+        python_callable=creating_DWH,
     )
 
     load = PythonOperator(
-        task_id='load',
-        python_callable=load,
+        task_id='sending_kafka',
+        python_callable=sending_kafka,
     )
 
-    store = PythonOperator(
-        task_id='store',
-        python_callable=store,
-    )
     
-    read_db >> transform_db >> merge
-    read_csv >> transform_csv >> merge >> load >> store
+    extract_db >> transform_db >> creating_DWH
+    extract_api >> transform_api >> creating_DWH >> sending_kafka 

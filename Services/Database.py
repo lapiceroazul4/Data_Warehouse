@@ -154,3 +154,8 @@ def creating_session(engine):
 #Function to close the session
 def closing_session(session):
     session.close()
+
+    #Function to Dispose Engine
+def disposing_engine(engine):
+    engine.dispose()
+    print("engine cerrado")
