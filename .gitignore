@@ -214,15 +214,9 @@ $RECYCLE.BIN/
 
 # ------ Additional Files -----
 
+# Folders
+Data/
+Credentials/
 
-#TODO: Update gitignore
-# Directory Airbnb
-/Airbnb/Airbnb_Open_Data.csv
-/Airbnb/data.csv
-/Airbnb/import.csv
-
-# Directory API
-/API/__pycache__/
-/API/df1.csv
-/API/df2.csv
-/API/api_config.json
+# EDAs Folder
+/EDAs/import.csv
