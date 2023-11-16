@@ -10,6 +10,8 @@ Before getting started with this project, make sure you have the following compo
 
 - [Python](https://www.python.org/)
 - [Database (can be local or cloud-based, if it's local I recommend using MySQL)](https://www.mysql.com/)
+- [Apache Kafka](https://kafka.apache.org/)
+- [Docker](https://www.docker.com/)
 
 ## Environment Setup
 
@@ -31,7 +33,7 @@ Here are the steps to set up your development environment:
    ```bash
    pip install -r requirements.txt
 
-4. **Create db_config**: Yo need to create a json file called "db_config" with the following information, make sure you replace the values with the correspondent information :
+4. **Create db_config**: Yo need to create a json file called "pg_config" with the following information, make sure you replace the values with the correspondent information and save it in a folder called "Credentials" :
 
    ```bash
    {
@@ -41,9 +43,7 @@ Here are the steps to set up your development environment:
     "database" : "demo_db"
    }  
 
-5. **Run the Airbnb Notebook**: Now go to Airbnb folder and run main_def.ipynb
-
-6. **Create api_config**: Yo need to create a json file called "api_config" with the following information, make sure you replace the values with the correspondent information: Remember this information it's provided in:  https://rapidapi.com/traveltables/api/cost-of-living-and-prices/
+5. **Create api_config**: Yo need to create a json file called "api_config" with the following information, make sure you replace the values with the correspondent information: Remember this information it's provided in:  https://rapidapi.com/traveltables/api/cost-of-living-and-prices/
 
    ```bash
       {
@@ -51,8 +51,12 @@ Here are the steps to set up your development environment:
         "X-RapidAPI-Host": "MyRapidAPIHost"
       }
 
-7. **Run the API Notebook**: Now go to API folder and run eda.ipynb
+6. **Open Airflow**: Now you open a terminal go to Services folder and run the following comands: 
 
+   ```bash
+      airflow standalone 
+
+7. **Go to your browser and open localhost:8080**: Once you've got here, run the dag.
 
 ## Contact
 

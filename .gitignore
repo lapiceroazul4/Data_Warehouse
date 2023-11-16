@@ -218,5 +218,7 @@ $RECYCLE.BIN/
 Data/
 Credentials/
 
-# EDAs Folder
-/EDAs/import.csv
+
+/Services/__pycache__
+/Services/__init__.py
+/Services/import.csv
