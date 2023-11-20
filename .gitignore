@@ -214,13 +214,11 @@ $RECYCLE.BIN/
 
 # ------ Additional Files -----
 
-# Directory Airbnb
-/Airbnb/Airbnb_Open_Data.csv
-/Airbnb/data.csv
-/Airbnb/import.csv
+# Folders
+Data/
+Credentials/
 
-# Directory API
-/API/__pycache__/
-/API/df1.csv
-/API/df2.csv
-/API/api_config.json
+
+/Services/__pycache__
+/Services/__init__.py
+/Services/import.csv
